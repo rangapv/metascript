@@ -5,7 +5,8 @@ set -E
 #sc1=`kubectl create secret generic aws-secret --from-file=cloud.conf=/etc/kubernetes/cloud.conf --from-file=config=$HOME/.kube/config --from-file=AWS_ACCESS_KEY_ID=$HOME/access_id --from-file=AWS_SECRET_ACCESS_KEY=$HOME/secret_id -n kube-system`
 
 #Install the CCM RBAC 
-source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/ccm/ccm-rbac.yaml)
+sc2=`kubectl apply -f  https://raw.githubusercontent.com/rangapv/k8s/master/ccm/ccm-rbac.yaml`
+echo "ccm RBAC output is $sc2"
 #Install the CCM for AWS Cloud Control Loops 
-source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/ccm/ccm-aws.yaml)
-#source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_adm/k8sfladash.sh)
+sc3=`kubectl apply -f  https://raw.githubusercontent.com/rangapv/k8s/master/ccm/ccm-aws.yaml`
+echo "ccm-aws  output is $sc3"
