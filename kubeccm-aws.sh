@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 set -E
+#The following step should be done by /meta/metasetup.sh
 #Create the /etc/kubernetes/cloud.conf
+#The following steps should be done by /meta/metamaster.sh script
 #Create the secrets file to be referenced by the cloud controllerd contaienr in this ccm-aws.yaml file
 #sc1=`kubectl create secret generic aws-secret --from-file=cloud.conf=/etc/kubernetes/cloud.conf --from-file=config=$HOME/.kube/config -n kube-system`
 #create the foloowing two secrets with the right access and secret"
