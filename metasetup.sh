@@ -47,10 +47,10 @@ sudo sed -i "s|${str3}.*|${str4}|" $file2
 sudo hostnamectl set-hostname ${pdns}
 }
 
-tag () {
+tag() {
 
 stra21=`./ec2-metadata -a | awk '{split($0,a," "); print a[2]}'`
-tag1=`aws ec2 create-tags --resources ${stra21} --tags Key=KubernetesCluster,Value=owned`
+tag1=`aws ec2 create-tags --resources ${str232} --region ${str231} --tags Key=KubernetesCluster,Value=owned`
 
 }
 
