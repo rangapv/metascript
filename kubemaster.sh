@@ -12,3 +12,5 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_adm/k
 source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_adm/k8sfladash.sh)
 #Call the create cloud.conf and secrets file on the master node cluster
 source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metamaster.sh)
+#Call the Cloud Controller Manager for AWS by the following script if you Dont need this but only vanilla cluster comment-it-out
+source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/kubeccm-aws.sh)
