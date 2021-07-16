@@ -1,15 +1,15 @@
 #!/bin/bash
 #Run this script like: ./metasetup.sh access_id secret_id
 set -E
-source <(curl -s https://raw.githubusercontent.com/rangapv/bash-source/main/s1.sh)
+source <(curl -s https://raw.githubusercontent.com/rangapv/bash-source/main/s1.sh) >/dev/null 2>&1
 
 cont() {
 acid="$1"
 secid="$2"
 export AWS_ACCESS_KEY_ID=${acid}
 export AWS_SECRET_ACCESS_KEY=${secid}
-sudo $cm1 -y install awscli
-sudo $cm1 -y install jq
+sudo $cm1 -y install awscli >/dev/null 2>&1
+sudo $cm1 -y install jq >/dev/null 2>&1
 }
 
 
@@ -47,6 +47,14 @@ sudo sed -i "s|${str3}.*|${str4}|" $file2
 sudo hostnamectl set-hostname ${pdns}
 }
 
+tag () {
+
+stra21=`./ec2-metadata -a | awk '{split($0,a," "); print a[2]}'`
+tag1=`aws ec2 create-tags --resources ${stra21} --tags Key=KubernetesCluster,Value=owned`
+
+}
+
+
 
 cont $1 $2
 hid
@@ -61,6 +69,7 @@ then
    then
      hcfg
      hcf
+     tag
    fi
 fi #end of u1 check
 
