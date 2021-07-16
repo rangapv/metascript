@@ -2,13 +2,12 @@
 set -E
 source <(curl -s https://raw.githubusercontent.com/rangapv/bash-source/main/s1.sh) >/dev/null 2>&1
 
-
 create() {
 file1="/etc/kubernetes/cloud.conf"
-cat > $file1 << EOF
+sudo tee << EOF /etc/kubernetes/cloud.conf >/dev/null
 [Global]
 Zone = ${str231}
-EOF 
+EOF
 }
 
 
