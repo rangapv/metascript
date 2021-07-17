@@ -17,7 +17,8 @@ hid() {
 wget http://s3.amazonaws.com/ec2metadata/ec2-metadata >/dev/null 2>&1
 chmod u+x ec2-metadata
 str23=`./ec2-metadata -i`
-str231=`./ec2-metadata -z | awk '{split($0,a," "); print a[2]}' | sed 's/.$//'`
+str233=`./ec2-metadata -z | awk '{split($0,a," "); print a[2]}' | sed 's/.$//'`
+str231=`./ec2-metadata -z | awk '{split($0,a," "); print a[2]}'`
 str232=`echo $str23 | awk '{split($0,a," "); print a[2]}'`
 #echo "region $str231"
 #echo "id $str232"
@@ -25,7 +26,7 @@ str232=`echo $str23 | awk '{split($0,a," "); print a[2]}'`
 }
 
 hpdns() {
-pdns=`aws ec2 describe-instances --region=${str231} --instance-ids ${str232} | jq -r '.Reservations[].Instances[].PrivateDnsName'`
+pdns=`aws ec2 describe-instances --region=${str233} --instance-ids ${str232} | jq -r '.Reservations[].Instances[].PrivateDnsName'`
 #echo "pdns $pdns"
 }
 
@@ -50,7 +51,7 @@ sudo hostnamectl set-hostname ${pdns}
 tag() {
 
 stra21=`./ec2-metadata -a | awk '{split($0,a," "); print a[2]}'`
-tag1=`aws ec2 create-tags --resources ${str232} --region ${str231} --tags Key=KubernetesCluster,Value=owned`
+tag1=`aws ec2 create-tags --resources ${str232} --region ${str233} --tags Key=KubernetesCluster,Value=owned`
 
 }
 
