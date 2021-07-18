@@ -3,6 +3,7 @@ set -E
 source <(curl -s https://raw.githubusercontent.com/rangapv/bash-source/main/s1.sh) >/dev/null 2>&1
 
 create() {
+str231=`./ec2-metadata -z | awk '{split($0,a," "); print a[2]}'`
 file1="/etc/kubernetes/cloud.conf"
 sudo tee << EOF /etc/kubernetes/cloud.conf >/dev/null
 [Global]
