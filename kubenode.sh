@@ -8,6 +8,7 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/runtimes/main/runcont
 source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_node/k8snodeinstall.sh)
 #Install the cloud.conf for cloud-controller loops,call this after transfering config file from master hence commented
 source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metanode.sh)
+source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/nodeconfig.sh)
 #For Cloud-Controller-Manager modify the kubelet...on the nodes...
 #Execute kubectl join by copying the line from Master node got during init.... then..install flannel below
 #Install the flannel yaml
