@@ -12,4 +12,4 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/nodec
 #For Cloud-Controller-Manager modify the kubelet...on the nodes...
 #Execute kubectl join by copying the line from Master node got during init.... then..install flannel below
 #Install the flannel yaml
-#source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_adm/k8sfladash.sh)
+#source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_node/k8snodeflanel.sh)
