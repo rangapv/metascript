@@ -14,7 +14,7 @@ sudo $cm1 -y install jq >/dev/null 2>&1
 
 
 hid() {
-wget http://s3.amazonaws.com/ec2metadata/ec2-metadata >/dev/null 2>&1
+wget http://s3.amazonaws.com/ec2metadata/ec2-metadata 
 chmod u+x ec2-metadata
 str23=`./ec2-metadata -i`
 str233=`./ec2-metadata -z | awk '{split($0,a," "); print a[2]}' | sed 's/.$//'`
