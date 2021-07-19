@@ -6,11 +6,11 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metas
 source <(curl -s https://raw.githubusercontent.com/rangapv/runtimes/main/runcontainerD.sh)
 #Install the k8s components and customize the runtime to use systemd
 source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_adm/adm_containerd_install.sh)
+#Call the create cloud.conf and secrets file on the master node cluster
+source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metamaster.sh)
 #Call the init.d command
 source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_adm/k8sinit.sh)
 #Call the flannel and dashboard install
 source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_adm/k8sfladash.sh)
-#Call the create cloud.conf and secrets file on the master node cluster
-source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metamaster.sh)
 #Call the Cloud Controller Manager for AWS by the following script if you Dont need this but only vanilla cluster comment-it-out
 source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/kubeccm-aws.sh)
