@@ -51,7 +51,7 @@ sudo hostnamectl set-hostname ${pdns}
 tag() {
 
 stra21=`./ec2-metadata -a | awk '{split($0,a," "); print a[2]}'`
-tag1=`aws ec2 create-tags --resources ${str232} --region ${str233} --tags Key=kubernetes.io/cluster/kubernetes, Value=owned`
+tag1=`aws ec2 create-tags --resources ${str232} --region ${str233} --tags Key=kubernetes.io/cluster/kubernetes,Value=owned`
 
 }
 
