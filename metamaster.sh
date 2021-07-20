@@ -2,15 +2,6 @@
 set -E
 source <(curl -s https://raw.githubusercontent.com/rangapv/bash-source/main/s1.sh) >/dev/null 2>&1
 
-create() {
-file1="/etc/kubernetes/cloud.conf"
-sudo tee << EOF /etc/kubernetes/cloud.conf >/dev/null
-[Global]
-Zone = ${str231}
-EOF
-}
-
-
 secrets () {
 
 ac1="echo $AWS_ACCESS_KEY_ID"
@@ -30,7 +21,6 @@ if [ ! -z "$u1" ]
 then
    if [ $ki = "ubuntu" ]
    then
-     create
      secrets
    fi
 fi #end of u1 check
