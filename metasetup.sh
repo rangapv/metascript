@@ -68,8 +68,8 @@ if [ ! -z "$u1" ]
 then
    if [ $ki = "ubuntu" ]
    then
-#     hcfg
-#     hcf
+     hcfg
+     hcf
      tag
    fi
 fi #end of u1 check
