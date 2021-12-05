@@ -13,5 +13,4 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metam
 #Call the flannel and dashboard install
 source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_adm/k8scalicodash.sh)
 #Call the Cloud Controller Manager for AWS by the following script if you Dont need this but only vanilla cluster comment-it-out
-source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metanode.sh)
 source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/kubeccm-aws.sh)
