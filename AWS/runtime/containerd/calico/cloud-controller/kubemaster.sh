@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-#Leaf Install for the Master run using ./metasetup.sh $accedd_id $secret_id
+#Leaf Install for the Master run using: bash ./kubemaster.sh $accedd_id $secret_id
 #Master Runs to completion
 set -E
 #Prepare the node in aws so that k8s can get hostanme as private DNS name
