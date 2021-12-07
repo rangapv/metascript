@@ -12,6 +12,7 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_node/
 #This will install the /etc/kubernetes/cloud.conf file with Zone info
 source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metanode.sh)
 source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/nodeconfig.sh)
+source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_node/k8scaliconode.sh)
 #For Cloud-Controller-Manager modify the kubelet...on the nodes...
 #Execute kubectl join by copying the line from Master node got during init.... then..install Calico below
 #Install the flannel yaml
