@@ -10,10 +10,12 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/runtimes/main/runcont
 source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_node/k8snodeinstall.sh)
 #Install the cloud.conf for cloud-controller loops,call this after transfering config file from master hence commented
 #This will install the /etc/kubernetes/cloud.conf file with Zone info
-source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metanode.sh)
+#This is cloud specific....
+source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/AWS/metanodeaws.sh)
+#the following script is cloud-agnostic and configures the kube-config file
 source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/nodeconfig.sh)
-source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_node/k8scaliconode.sh)
+#The following is just a calcioctl install and cloud-agnostic
+#source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_node/k8scaliconode.sh)
 #For Cloud-Controller-Manager modify the kubelet...on the nodes...
 #Execute kubectl join by copying the line from Master node got during init.... then..install Calico below
-#Install the flannel yaml
 #source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_node/k8snodecalico.sh) 
