@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 set -E
-#Leaf Install on the Nodes to run ./metasetup.sh $access_id $secret_id v1.2x.x
+#Leaf Install on the Nodes to run ./kubenode.sh $access_id $secret_id 1.2x.x
 #Prudent to transfer the kube-config file to the Node before invoking this script
 #Prepare the node in aws so that k8s can get hostanme as private DNS name
 source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metasetup.sh $1 $2)
