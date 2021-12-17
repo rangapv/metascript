@@ -12,6 +12,6 @@ set -E
 sc2=`kubectl apply -f  https://raw.githubusercontent.com/rangapv/k8s/master/ccm/ccm-rbac.yaml`
 echo "ccm RBAC output is $sc2"
 #Install the CCM for AWS Cloud Control Loops 
-#sc3=`kubectl apply -f  https://raw.githubusercontent.com/rangapv/k8s/master/ccm/ccm-aws.yaml`
-sc3=`kubectl apply -f https://raw.githubusercontent.com/rangapv/Kube-Manifests/master/CCM/aws/ccm-aws.yaml`
+sc3=`kubectl apply -f  https://raw.githubusercontent.com/rangapv/k8s/master/ccm/ccm-aws.yaml`
+3sc3=`kubectl apply -f https://raw.githubusercontent.com/rangapv/Kube-Manifests/master/CCM/aws/ccm-aws.yaml`
 echo "ccm-aws  output is $sc3"
