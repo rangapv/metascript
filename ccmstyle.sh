@@ -1,4 +1,6 @@
 #!/bin/bash
+source <(curl -s https://raw.githubusercontent.com/rangapv/kubestatus/main/ks.sh) >>/dev/null 2>&1
+
 fileapi="/etc/kubernetes/manifests/kube-apiserver.yaml"
 filecon="/etc/kubernetes/manifests/kube-controller-manager.yaml"
 filekube="/etc/systemd/system/kubelet.service.d/10-kubeadm.conf"
@@ -31,6 +33,16 @@ fi
 
 }
 
+
+
+if [[ (( $master -eq 1 )) ]] 
+then
 cldchk $fileapi
 cldchk $filecon
 kubchk $filekube
+elif [[ (( $node -eq 1 )) ]]
+then
+kubchk $filekube
+else
+	echo "Nothing to Do"
+fi
