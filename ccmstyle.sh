@@ -33,7 +33,24 @@ fi
 
 }
 
+cloudconf () {
+str231=`/home/ubuntu/meta/ec2-metadata -z | awk '{split($0,a," "); print a[2]}'`
+fileconf="/etc/kubernetes/cloud.conf"
+fconfline1="[Global]"
+fconfline2="Zone=$str231"
+if [[ ( ! -f "$fileconf" ) ]]
+then
 
+       sudo touch "$fileconf"
+fi
+if [[ ( ! -z "$fileconf" ) ]]
+then
+        sudo chmod 777 "$fileconf"
+        #sudo sed -i "//a\$fconfline1" $fileconf
+        #awk 'BEGIN { print $fconfline1, $fconfline2 > "/home/ubuntu/ftg/cloud.conf"}'
+        sudo echo -en "$fconfline1\n$fconfline2" > "$fileconf"
+fi
+}
 
 if [[ (( $master -eq 1 )) ]] 
 then
@@ -46,3 +63,4 @@ kubchk $filekube
 else
 	echo "Nothing to Do"
 fi
+cloudconf
