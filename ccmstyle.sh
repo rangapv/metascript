@@ -34,7 +34,7 @@ fi
 }
 
 cloudconf () {
-str231=`/home/ubuntu/meta/ec2-metadata -z | awk '{split($0,a," "); print a[2]}'`
+str231=`./ec2-metadata -z | awk '{split($0,a," "); print a[2]}'`
 fileconf="/etc/kubernetes/cloud.conf"
 fconfline1="[Global]"
 fconfline2="Zone=$str231"
