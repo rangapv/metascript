@@ -22,6 +22,12 @@ fi
 
 }
 
+inst () {
+candi="$1"
+wget http://s3.amazonaws.com/ec2metadata/ec2-metadata 
+chmod u+x ec2-metadata
+}
+
 kubchk () {
 filee=$1
 apichk=`sudo cat "$filee" | grep "\-\-cloud\-provider\=external"`
@@ -29,11 +35,21 @@ apichks="$?"
 if [[ (( $apichks -ne 0 )) ]]
 then
 	sudo sed -i "s/$linebb/& $linekad/" $filee
+	sudo systemctl daemon-reload
+	sudo systemctl restart kubelet
+	echo "done kubelet"
 fi
 
 }
 
 cloudconf () {
+chkec2meta=`find ./ec2-metadata`
+chkec2metas="$?"
+if [[ (( $chkec2metas -ne 0 )) ]]
+then
+   inst ec2-metadata
+fi   
+
 str231=`./ec2-metadata -z | awk '{split($0,a," "); print a[2]}'`
 fileconf="/etc/kubernetes/cloud.conf"
 fconfline1="[Global]"
