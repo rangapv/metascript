@@ -9,5 +9,6 @@ set -E
 
 #if [[ (( $met1s -ne 0 )) ]]
 #then
-     source "./metadata-aws.sh"
+     #source "./metadata-aws.sh"
+     source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/AWS/metadata-aws.sh)
 #fi
