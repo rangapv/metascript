@@ -10,7 +10,15 @@ str231=`./ec2-metadata -z | awk '{split($0,a," "); print a[2]}'`
 str232=`echo $str23 | awk '{split($0,a," "); print a[2]}'`
 #echo "region $str231"
 #echo "id $str232"
-
 }
 
-hid
+met1=`which ec2-metadata`
+met1s="$?"
+
+if [[ (( $met1s -ne 0 )) ]]
+then
+    hid
+else
+	echo "ec2-metadata already installed"
+fi
+
